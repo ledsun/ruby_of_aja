@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @human.problem_html.html_safe %>
+</p>
+
+<p>
+  <strong>Solution:</strong>
+  <%= @human.solution_html.html_safe %>
+  <form action="/humen/<%= @human.id %>/blood" method="get">
+    <input type="hidden" name="script" value="<%= @human.solution %>">
+    <button>evaluate</button>
+  </form>
+</p>
+
+<p>
+  <strong>Aim:</strong>
+  <%= @human.aim %>
+</p>
+
+<p>
+  <strong>Expected time:</strong>
+  <%= @human.expected_time %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @human.order %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @human.category.name %>
+</p>
+
+<%= link_to 'Edit', edit_human_path(@human) %> |
+<%= link_to 'Back', humen_path %>

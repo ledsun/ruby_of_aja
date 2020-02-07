@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Humen</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Problem</th>
+      <th>Solution</th>
+      <th>Aim</th>
+      <th>Expected time</th>
+      <th>Order</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @humen.each do |human| %>
+      <tr>
+        <td><%= human.problem %></td>
+        <td><%= human.solution %></td>
+        <td><%= human.aim %></td>
+        <td><%= human.expected_time %></td>
+        <td><%= human.order %></td>
+        <td><%= human.category.name %></td>
+        <td><%= link_to 'Show', human %></td>
+        <td><%= link_to 'Edit', edit_human_path(human) %></td>
+        <td><%= link_to 'Destroy', human, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Human', new_human_path %>

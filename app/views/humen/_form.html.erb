@@ -1,0 +1,50 @@
+<%= form_with(model: human, local: true) do |form| %>
+  <% if human.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(human.errors.count, "error") %> prohibited this human from being saved:</h2>
+
+      <ul>
+        <% human.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :problem %>
+    <%= form.text_area :problem %>
+  </div>
+
+  <div class="field">
+    <%= form.label :solution %>
+    <%= form.text_area :solution %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aim %>
+    <%= form.text_area :aim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expected_time %>
+    <%= form.number_field :expected_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order %>
+    <%= form.number_field :order %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%#= form.text_field :category %>
+    <%#= form.select :sport_id, options_for_select(Category.all.map{|s|[s.name, s.id]}) %>
+
+    <%= form.collection_select(:category_id, Category.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
