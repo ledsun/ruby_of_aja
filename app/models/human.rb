@@ -6,12 +6,15 @@ class Human < ApplicationRecord
   belongs_to :category
 
   def problem_html
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     markdown.render problem
   end
 
   def solution_html
     CodeRay.scan(solution, :ruby).div(:line_numbers => :table)
+  end
+
+  def aim_html
+    markdown.render aim
   end
 
   def result
@@ -22,5 +25,11 @@ class Human < ApplicationRecord
     ensure
       $stdout = STDOUT
     end
+  end
+
+  private
+
+  def markdown
+    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 end
