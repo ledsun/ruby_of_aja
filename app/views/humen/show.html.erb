@@ -8,11 +8,13 @@
 <p>
   <strong>Solution:</strong>
   <%= @human.solution_html.html_safe %>
-  <form action="/humen/<%= @human.id %>/blood" method="get">
-    <input type="hidden" name="script" value="<%= @human.solution %>">
-    <button>evaluate</button>
-  </form>
 </p>
+
+<p>
+  <strong>Result:</strong>
+  <pre><%= @human.result %></p>
+</pre>
+
 
 <p>
   <strong>Aim:</strong>
