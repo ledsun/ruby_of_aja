@@ -11,10 +11,16 @@
 </p>
 
 <p>
-  <strong>Result:</strong>
-  <pre><%= @human.result %></p>
-</pre>
+  <strong>Inputs:</strong>
+  <% @human.input.each do |i| %>
+    <%= i %><br>
+  <% end %>
+</p>
 
+<p>
+  <strong>Result:</strong>
+  <pre><%= @human.result %></pre>
+</p>
 
 <p>
   <strong>Aim:</strong>
