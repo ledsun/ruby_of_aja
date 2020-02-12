@@ -36,11 +36,11 @@ module Eval
       eval ruby_script
       $stdout.string
     rescue => e
-      logger.debug e
+      Rails.logger.debug e
       bc = ActiveSupport::BacktraceCleaner.new
       bc.add_silencer { |line| line =~ %r{gems} }
-      logger.debug bc.clean(e.backtrace).join("\n")
-      logger.debug ruby_script
+      Rails.logger.debug bc.clean(e.backtrace).join("\n")
+      Rails.logger.debug ruby_script
       raise
     ensure
       $stdin = STDIN
