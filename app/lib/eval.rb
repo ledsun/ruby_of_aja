@@ -1,6 +1,10 @@
 module Eval
-  def self.random_gets
-    source = %w(佐藤 鈴木 高橋 田中 伊藤 渡辺 山本 中村 小林 加藤 吉田 AAA 5)
+  def self.random_gets(source_type)
+    source = if source_type == 'Integer'
+               (1..15).map { _1.to_s }
+             else
+               %w(佐藤 鈴木 高橋 田中 伊藤 渡辺 山本 中村 小林 加藤 吉田 AAA)
+             end
     sample = []
     stdin = Object.new
     stdin.singleton_class.instance_eval do

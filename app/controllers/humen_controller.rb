@@ -70,6 +70,6 @@ class HumenController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def human_params
-      params.require(:human).permit(:problem, :solution, :aim, :expected_time, :order, :category_id)
+      params.require(:human).permit(:problem, :solution, :aim, :expected_time, :order, :category_id, :source_type)
     end
 end

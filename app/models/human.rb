@@ -14,7 +14,7 @@ class Human < ApplicationRecord
   end
 
   def input
-    stdin, @sample = Eval.random_gets
+    stdin, @sample = Eval.random_gets(source_type)
     Eval.wrap_eval stdin, solution
     @sample
   end
