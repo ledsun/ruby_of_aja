@@ -21,8 +21,8 @@
         <td><%= link_to human.category.name, human.category %></td>
         <td><%= human.order %></td>
         <td><%= human.aim_html.html_safe %></td>
-        <td><%= human.problem %></td>
-        <td><%= human.solution %></td>
+        <td><%= human.problem_html.html_safe %></td>
+        <td><%= human.solution_html.html_safe %></td>
         <td><%= human.expected_time %></td>
         <td><%= link_to 'Show', human %></td>
         <td><%= link_to 'Edit', edit_human_path(human) %></td>
