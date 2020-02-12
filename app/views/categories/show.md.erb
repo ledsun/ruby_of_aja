@@ -1,0 +1,23 @@
+
+<% @category.humen.each do |h| %>
+## 課題<%= h.order %> 制限時間<%= h.expected_time %>分
+
+### 問題文
+
+<%= h.problem.html_safe %>
+
+### ねらい
+
+<%= h.aim %>
+
+<details>
+<summary>解答例</summary>
+
+```ruby
+<%= raw h.solution.chomp %>
+```
+
+</details>
+
+<% end %>
+
